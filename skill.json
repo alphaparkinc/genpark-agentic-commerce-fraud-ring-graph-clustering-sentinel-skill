@@ -1,0 +1,98 @@
+{
+  "name": "genpark-agentic-commerce-fraud-ring-graph-clustering-sentinel-skill",
+  "version": "1.0.0",
+  "title": "Commerce Fraud Ring Graph Louvain Clustering Sentinel Skill",
+  "description": "Real-time syndication fraud ring detection, graph Louvain modularity & connected component clustering over shared device fingerprints, billing addresses, IP subnets, and disposable virtual cards. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "agentic-commerce",
+  "topics": [
+    "fraud-prevention",
+    "graph-clustering",
+    "syndication-rings",
+    "risk-arbitration",
+    "agentic-commerce",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "analyze_transaction_graph_cluster",
+      "description": "Analyze multi-attribute transaction entity graph for connected syndication clusters and high-risk coordinated fraud patterns.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transactions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tx_id": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "string"
+                },
+                "amount_usd": {
+                  "type": "number"
+                },
+                "device_fingerprint": {
+                  "type": "string"
+                },
+                "ip_subnet": {
+                  "type": "string"
+                },
+                "card_bin": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tx_id",
+                "user_id",
+                "amount_usd",
+                "device_fingerprint",
+                "ip_subnet"
+              ]
+            }
+          },
+          "cluster_similarity_threshold": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "transactions"
+        ]
+      }
+    },
+    {
+      "name": "compile_fraud_ring_interdiction_dossier",
+      "description": "Compile an interdiction dossier detailing high-risk cluster nodes, recommended payment gateway blocks, and 3DS challenge rules.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cluster_id": {
+            "type": "string"
+          },
+          "member_tx_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "total_exposure_usd": {
+            "type": "number"
+          },
+          "primary_vector": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cluster_id",
+          "member_tx_ids",
+          "total_exposure_usd",
+          "primary_vector"
+        ]
+      }
+    }
+  ]
+}
